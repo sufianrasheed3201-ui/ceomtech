@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ceomtech.sufianrasheed.com/sitemap.xml
