@@ -85,10 +85,6 @@
   /* ---------- nav ---------- */
   const nav = document.getElementById('nav');
   ScrollTrigger.create({ start: 80, end: 'max', onToggle: (s) => nav.classList.toggle('scrolled', s.isActive) });
-  document.querySelectorAll('.links a').forEach((a) => {
-    const sec = document.querySelector(a.getAttribute('href'));
-    if (sec) ScrollTrigger.create({ trigger: sec, start: 'top 50%', end: 'bottom 50%', onToggle: (s) => a.classList.toggle('on', s.isActive) });
-  });
 
   /* ---------- cursor + magnetic ---------- */
   if (finePointer) {
@@ -205,6 +201,12 @@
 
   /* ---------- the copper thread through the page ---------- */
   initThread();
+
+  /* nav highlight: created after all pins so positions include pin spacing */
+  document.querySelectorAll('.links a').forEach((a) => {
+    const sec = document.querySelector(a.getAttribute('href'));
+    if (sec) ScrollTrigger.create({ trigger: sec, start: 'top 50%', end: 'bottom 50%', onToggle: (s) => a.classList.toggle('on', s.isActive) });
+  });
 
   addEventListener('load', () => ScrollTrigger.refresh());
 
